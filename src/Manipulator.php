@@ -185,7 +185,7 @@ class Manipulator implements ManipulatorInterface
      */
     public function addBusinessDays($howManyDays, $strategy = self::EXCLUDE_TODAY)
     {
-        $today = new \DateTime();
+        $today = new \DateTime('now', $this->cursorDate->getTimezone());
 
         if ($today->format('Y-m-d') === $this->cursorDate->format('Y-m-d')) {
             if (static::EXCLUDE_TODAY === $strategy) {
